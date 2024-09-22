@@ -157,19 +157,19 @@ function registerUser() {
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-4 md:mb-8 text-center">
                 <!-- Doctor Tile -->
                 <div @click="selectRole('doctor')" :class="{'active-role': selectedRole === 'doctor'}" class="role-card">
-                    <i class="fas fa-stethoscope text-3xl md:text-4xl text-orange-500"></i>
+                    <i class="fas fa-stethoscope text-3xl md:text-4xl text-green-500"></i>
                     <h3 class="mt-2 md:mt-4 text-lg md:text-xl font-medium">Practitioner</h3>
                 </div>
 
                 <!-- Staff Tile -->
                 <div @click="selectRole('staff')" :class="{'active-role': selectedRole === 'staff'}" class="role-card">
-                    <i class="fas fa-house-chimney-medical text-3xl md:text-4xl text-orange-500"></i>
+                    <i class="fas fa-house-chimney-medical text-3xl md:text-4xl text-purple-500"></i>
                     <h3 class="mt-2 md:mt-4 text-lg md:text-xl font-medium">Staff</h3>
                 </div>
 
                 <!-- Patient Tile -->
                 <div @click="selectRole('patient')" :class="{'active-role': selectedRole === 'patient'}" class="role-card">
-                    <i class="fas fa-user text-3xl md:text-4xl text-orange-500"></i>
+                    <i class="fas fa-user text-3xl md:text-4xl text-blue-500"></i>
                     <h3 class="mt-2 md:mt-4 text-lg md:text-xl font-medium">Patient</h3>
                 </div>
             </div>
@@ -224,7 +224,8 @@ function registerUser() {
                         <input :type="field.type" v-model="formData[field.model]" class="input-field" />
                     </div>
                 </div>
-                <button type="submit" class="submit-button">Register</button>
+                <button type="submit" class="submit-button bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-6 rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105">Register</button>
+
             </form>
         </div>
     </div>

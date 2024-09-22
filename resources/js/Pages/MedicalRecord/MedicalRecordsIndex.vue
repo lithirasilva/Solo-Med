@@ -4,41 +4,43 @@
         <div class="m-4">
             <Link
                 :href="'/medical-records/create'"
-                class="bg-orange-500 text-white px-4 py-2 rounded hover:bg-blue-600 "
+                class="bg-orange-500 text-white px-4 py-2 rounded hover:bg-blue-600"
             >
                 Add New Record
             </Link>
         </div>
 
-        <table class="min-w-full bg-white border border-gray-300">
-            <thead>
-            <tr>
-                <th class="py-2 px-4 border-b">Date & Time</th>
-                <th class="py-2 px-4 border-b">Medical Record ID</th>
-                <th class="py-2 px-4 border-b">Patient ID</th>
-                <th class="py-2 px-4 border-b">Doctor ID</th>
-                <th class="py-2 px-4 border-b">Record Title</th>
-                <th class="py-2 px-4 border-b">Actions</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr v-for="record in medicalRecords" :key="record.medicalRecordId">
-                <td class="py-2 px-4 border-b">{{ new Date(record.created_at).toLocaleString()  }}</td>
-                <td class="py-2 px-4 border-b">{{ record.medicalRecordId }}</td>
-                <td class="py-2 px-4 border-b">{{ record.patientId }}</td>
-                <td class="py-2 px-4 border-b">{{ record.doctorId }}</td>
-                <td class="py-2 px-4 border-b">{{ record.recordTitle }}</td>
-                <td class="py-2 px-4 border-b">
-                    <button @click="showRecord(record.medicalRecordId)" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mx-2">
-                        View Record
-                    </button>
-                    <button @click="deleteRecord(record.medicalRecordId)" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 mx-2">
-                        Delete
-                    </button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+        <div class="overflow-x-auto">
+            <table class="min-w-full bg-white border border-gray-300">
+                <thead>
+                <tr>
+                    <th class="py-2 px-4 border-b">Date & Time</th>
+                    <th class="py-2 px-4 border-b">Medical Record ID</th>
+                    <th class="py-2 px-4 border-b">Patient ID</th>
+                    <th class="py-2 px-4 border-b">Doctor ID</th>
+                    <th class="py-2 px-4 border-b">Record Title</th>
+                    <th class="py-2 px-4 border-b">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr v-for="record in medicalRecords" :key="record.medicalRecordId">
+                    <td class="py-2 px-4 border-b">{{ new Date(record.created_at).toLocaleString() }}</td>
+                    <td class="py-2 px-4 border-b">{{ record.medicalRecordId }}</td>
+                    <td class="py-2 px-4 border-b">{{ record.patientId }}</td>
+                    <td class="py-2 px-4 border-b">{{ record.doctorId }}</td>
+                    <td class="py-2 px-4 border-b">{{ record.recordTitle }}</td>
+                    <td class="py-2 px-4 border-b flex flex-col md:flex-row">
+                        <button @click="showRecord(record.medicalRecordId)" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mb-2 md:mb-0 md:mr-2">
+                            View Record
+                        </button>
+                        <button @click="deleteRecord(record.medicalRecordId)" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
 
     </div>
 </template>
@@ -61,12 +63,9 @@ const showRecord = (id) => {
     Inertia.get(`/medical-records/${id}`);
 };
 
-defineOptions(
-    {
-        layout: AppLayout,
-    }
-
-);
+defineOptions({
+    layout: AppLayout,
+});
 </script>
 
 <style scoped>
