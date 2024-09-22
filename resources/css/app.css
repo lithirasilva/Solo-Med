@@ -1,0 +1,13 @@
+/* Import FormKit default theme */
+
+/* Tailwind CSS directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles (if any) */
+[x-cloak] {
+    display: none;
+}
+
+/* Additional custom styles can be added below */
